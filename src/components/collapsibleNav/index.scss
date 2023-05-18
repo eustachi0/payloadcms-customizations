@@ -239,6 +239,7 @@
     position: sticky;
     top: 0;
     left: 0;
+    margin-left: -25px;
     margin-bottom: -16px;
     padding: 0 !important;
     height: 100vh;
@@ -472,7 +473,7 @@
 }
 
 .expand-sidebar-button {
-    position: fixed;
+    position: sticky;
     width: 25px;
     height: 25px;
     top: 72px;
