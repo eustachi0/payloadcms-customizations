@@ -57,8 +57,20 @@
         display: flex;
         flex-direction: column;
         padding: base(4.5) base(1) !important;
-        width: calc(100% + #{base(1)});
+        width: calc(90% + #{base(1)}) !important;
         overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            width: 21px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--theme-elevation-150);
+            border-top: 118px solid var(--theme-elevation-0);
+            border-bottom: 130px solid var(--theme-elevation-0);
+            border-right: 10px solid var(--theme-elevation-0);
+            border-left: 8px solid var(--theme-elevation-0);
+        }
     }
 
     &__wrap {
