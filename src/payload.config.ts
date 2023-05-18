@@ -18,6 +18,11 @@ export default buildConfig({
         },
     },
     collections: [Users, Products, Blogs, Tags, Orders],
+    localization: {
+        locales: ["en"],
+        defaultLocale: "en",
+        fallback: true,
+    },
     typescript: {
         outputFile: path.resolve(__dirname, "payload-types.ts"),
     },

@@ -89,9 +89,8 @@
     &__controls {
         position: absolute !important;
         z-index: 15 !important;
-        margin-top: -130px !important;
-        margin-bottom: 0;
-        height: 180px;
+        bottom: 0;
+        height: 130px;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -100,7 +99,15 @@
         backdrop-filter: blur(5px) !important;
 
         > * {
-            margin-top: base(1);
+            margin-top: base(1.5) !important;
+            margin-bottom: -19px;
+        }
+        > :first-child {
+            position: absolute;
+            margin-top: -3px !important;
+            margin-left: -25px;
+            padding-left: 30px;
+            margin-bottom: 10px;
         }
     }
 
@@ -298,9 +305,8 @@
     &__controls {
         position: absolute !important;
         z-index: 15;
-        margin-top: -130px !important;
-        margin-bottom: 0;
-        height: 180px;
+        bottom: 0;
+        height: 130px;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -309,7 +315,15 @@
         backdrop-filter: blur(5px) !important;
 
         > * {
-            margin-top: base(1);
+            margin-top: base(1.5) !important;
+            margin-bottom: -19px;
+        }
+        > :first-child {
+            position: absolute;
+            margin-top: -3px !important;
+            margin-left: -25px;
+            padding-left: 30px;
+            margin-bottom: 10px;
         }
     }
 

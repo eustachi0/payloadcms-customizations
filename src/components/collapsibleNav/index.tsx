@@ -218,7 +218,9 @@ const DefaultNav = () => {
                             </nav>
                         </div>
                         <div className={`${baseClass}__controls`}>
-                            <Localizer />
+                            <div>
+                                <Localizer />
+                            </div>
                             <Link
                                 to={`${admin}/account`}
                                 className={`${baseClass}__account`}
@@ -338,7 +340,9 @@ const DefaultNav = () => {
                             </nav>
                         </div>
                         <div className={`${baseClassCollapse}__controls`}>
-                            <Localizer />
+                            <div>
+                                <Localizer />
+                            </div>
                             <Link
                                 to={`${admin}/account`}
                                 className={`${baseClassCollapse}__account`}
