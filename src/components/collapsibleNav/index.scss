@@ -89,8 +89,9 @@
     &__controls {
         position: absolute !important;
         z-index: 15 !important;
-        bottom: 0;
-        height: 130px;
+        margin-top: -130px !important;
+        margin-bottom: 0;
+        height: 180px;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -100,7 +101,7 @@
 
         > * {
             margin-top: base(1.5) !important;
-            margin-bottom: -19px;
+            margin-bottom: -20px;
         }
         > :first-child {
             position: absolute;
@@ -305,8 +306,9 @@
     &__controls {
         position: absolute !important;
         z-index: 15;
-        bottom: 0;
-        height: 130px;
+        margin-top: -130px !important;
+        margin-bottom: 0;
+        height: 180px;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -316,7 +318,7 @@
 
         > * {
             margin-top: base(1.5) !important;
-            margin-bottom: -19px;
+            margin-bottom: -20px;
         }
         > :first-child {
             position: absolute;
