@@ -150,6 +150,7 @@
             position: absolute;
             left: -base(0.5);
             transform: rotate(-90deg);
+            margin-left: 4px !important;
         }
 
         &.active {
@@ -166,6 +167,7 @@
         height: base(3);
         z-index: var(--z-modal);
         margin-left: 0px;
+        border-right: none !important;
 
         &__brand {
             margin-top: 0 !important;
@@ -300,6 +302,15 @@
         cursor: pointer;
     }
 
+    &__wrap {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-grow: 1;
+        margin-bottom: 18px;
+    }
+
     &__label {
         color: var(--theme-elevation-400);
     }
@@ -369,6 +380,7 @@
             position: absolute;
             left: -base(0.5);
             transform: rotate(-90deg);
+            margin-left: -23px !important;
         }
 
         &.active {
@@ -385,6 +397,7 @@
         height: base(3);
         z-index: var(--z-modal);
         margin-left: 0px;
+        border-right: none !important;
 
         &__brand {
             margin-top: 0 !important;
@@ -401,6 +414,10 @@
             overflow: hidden;
             width: 100%;
             display: block;
+        }
+
+        &__scroll:hover {
+            cursor: default;
         }
 
         header,
@@ -423,10 +440,22 @@
             margin-top: -30px !important;
         }
 
-        &.nav--menu-active {
+        &__wrap {
+            padding-top: 0;
+            visibility: hidden;
+            opacity: 0;
+            overflow-y: scroll;
+            position: fixed;
+            top: base(4);
+            bottom: 115px !important;
+            margin-left: -17px !important;
+            width: 103% !important;
+        }
+
+        &.collapse--menu-active {
             height: 100vh;
 
-            .nav__wrap {
+            .collapse__wrap {
                 visibility: visible;
                 opacity: 1;
             }

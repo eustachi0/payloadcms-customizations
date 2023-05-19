@@ -22,8 +22,7 @@ import { getTranslation } from "payload/dist/utilities/getTranslation";
 
 import "./index.scss";
 
-const baseClass = "nav";
-const baseClassCollapse = "collapse";
+let baseClass = "nav";
 
 const DefaultNav = () => {
     const { permissions, user } = useAuth();
@@ -41,13 +40,6 @@ const DefaultNav = () => {
     } = useConfig();
 
     const classes = [baseClass, menuActive && `${baseClass}--menu-active`]
-        .filter(Boolean)
-        .join(" ");
-
-    const classesCollapse = [
-        baseClassCollapse,
-        menuActive && `${baseClass}--menu-active`,
-    ]
         .filter(Boolean)
         .join(" ");
 
@@ -100,260 +92,180 @@ const DefaultNav = () => {
         [history]
     );
 
+    useEffect(() => {
+        const handleGetWinWidth = () => {
+            if (window.innerWidth > 1024) {
+                if (menuActive === true) {
+                    setMenuActive(false);
+                }
+            }
+        };
+
+        window.addEventListener("resize", handleGetWinWidth);
+
+        return () => {
+            window.removeEventListener("resize", handleGetWinWidth);
+        };
+    });
+
     // collapsible Nav functionality
     const [navIsCollapsed, setNavIsCollapsed] = useState(false);
 
     // collapse/expand sidebar using the button
     const handleCollapseNav = () => {
         setNavIsCollapsed(!navIsCollapsed);
+
+        if (navIsCollapsed) {
+            baseClass = "nav";
+            return baseClass;
+        } else {
+            baseClass = "collapse";
+            return baseClass;
+        }
     };
 
     // expand sidebar when clicking on the collapsed sidebar area
     const handleExpandNav = () => {
         setNavIsCollapsed(false);
+        baseClass = "nav";
+
+        return baseClass;
     };
 
     return (
         <>
-            {!navIsCollapsed ? (
-                <>
-                    <button
-                        className="collapse-sidebar-button"
-                        onClick={handleCollapseNav}
+            <button
+                className={
+                    !navIsCollapsed
+                        ? "collapse-sidebar-button"
+                        : "expand-sidebar-button"
+                }
+                onClick={handleCollapseNav}
+            >
+                {!navIsCollapsed ? (
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                     >
-                        <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M18.3639 7.75735L16.9497 6.34314L11.2929 12L16.9497 17.6568L18.3639 16.2426L14.1213 12L18.3639 7.75735Z"
-                                fill="currentColor"
-                            />
-                            <path
-                                d="M11.2929 6.34314L12.7071 7.75735L8.46447 12L12.7071 16.2426L11.2929 17.6568L5.63605 12L11.2929 6.34314Z"
-                                fill="currentColor"
-                            />
-                        </svg>
-                    </button>
-                    <aside className={classes}>
-                        <header>
-                            <Link to={admin} className={`${baseClass}__brand`}>
-                                <Icon />
-                            </Link>
-                            <button
-                                type="button"
-                                className={`${baseClass}__mobile-menu-btn`}
-                                onClick={() => setMenuActive(!menuActive)}
-                            >
-                                {menuActive && <CloseMenu />}
-                                {!menuActive && <Menu />}
-                            </button>
-                        </header>
-                        <div className={`${baseClass}__scroll`}>
-                            <nav className={`${baseClass}__wrap`}>
-                                {Array.isArray(beforeNavLinks) &&
-                                    beforeNavLinks.map((Component, i) => (
-                                        <Component key={i} />
-                                    ))}
-                                {groups.map(({ label, entities }, key) => {
-                                    return (
-                                        <NavGroup {...{ key, label }}>
-                                            {entities.map(
-                                                ({ entity, type }, i) => {
-                                                    let entityLabel: string;
-                                                    let href: string;
-                                                    let id: string;
-
-                                                    if (
-                                                        type ===
-                                                        EntityType.collection
-                                                    ) {
-                                                        href = `${admin}/collections/${entity.slug}`;
-                                                        entityLabel =
-                                                            getTranslation(
-                                                                entity.labels
-                                                                    .plural,
-                                                                i18n
-                                                            );
-                                                        id = `nav-${entity.slug}`;
-                                                    }
-
-                                                    if (
-                                                        type ===
-                                                        EntityType.global
-                                                    ) {
-                                                        href = `${admin}/globals/${entity.slug}`;
-                                                        entityLabel =
-                                                            getTranslation(
-                                                                entity.label,
-                                                                i18n
-                                                            );
-                                                        id = `nav-global-${entity.slug}`;
-                                                    }
-
-                                                    return (
-                                                        <NavLink
-                                                            id={id}
-                                                            className={`${baseClass}__link`}
-                                                            activeClassName="active"
-                                                            key={i}
-                                                            to={href}
-                                                        >
-                                                            <Chevron />
-                                                            {entityLabel}
-                                                        </NavLink>
-                                                    );
-                                                }
-                                            )}
-                                        </NavGroup>
-                                    );
-                                })}
-                                {Array.isArray(afterNavLinks) &&
-                                    afterNavLinks.map((Component, i) => (
-                                        <Component key={i} />
-                                    ))}
-                            </nav>
-                        </div>
-                        <div className={`${baseClass}__controls`}>
-                            <div>
-                                <Localizer />
-                            </div>
-                            <Link
-                                to={`${admin}/account`}
-                                className={`${baseClass}__account`}
-                            >
-                                <Account />
-                            </Link>
-                            <Logout />
-                        </div>
-                    </aside>
-                </>
-            ) : (
-                <>
-                    <button
-                        className="expand-sidebar-button"
-                        onClick={handleCollapseNav}
+                        <path
+                            d="M18.3639 7.75735L16.9497 6.34314L11.2929 12L16.9497 17.6568L18.3639 16.2426L14.1213 12L18.3639 7.75735Z"
+                            fill="currentColor"
+                        />
+                        <path
+                            d="M11.2929 6.34314L12.7071 7.75735L8.46447 12L12.7071 16.2426L11.2929 17.6568L5.63605 12L11.2929 6.34314Z"
+                            fill="currentColor"
+                        />
+                    </svg>
+                ) : (
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                     >
-                        <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M5.63605 7.75735L7.05026 6.34314L12.7071 12L7.05029 17.6568L5.63608 16.2426L9.87869 12L5.63605 7.75735Z"
-                                fill="currentColor"
-                            />
-                            <path
-                                d="M12.7071 6.34314L11.2929 7.75735L15.5356 12L11.2929 16.2426L12.7072 17.6568L18.364 12L12.7071 6.34314Z"
-                                fill="currentColor"
-                            />
-                        </svg>
+                        <path
+                            d="M5.63605 7.75735L7.05026 6.34314L12.7071 12L7.05029 17.6568L5.63608 16.2426L9.87869 12L5.63605 7.75735Z"
+                            fill="currentColor"
+                        />
+                        <path
+                            d="M12.7071 6.34314L11.2929 7.75735L15.5356 12L11.2929 16.2426L12.7072 17.6568L18.364 12L12.7071 6.34314Z"
+                            fill="currentColor"
+                        />
+                    </svg>
+                )}
+            </button>
+            <aside className={classes}>
+                <header>
+                    <Link to={admin} className={`${baseClass}__brand`}>
+                        <Icon />
+                    </Link>
+                    <button
+                        type="button"
+                        className={`${baseClass}__mobile-menu-btn`}
+                        onClick={() => setMenuActive(!menuActive)}
+                    >
+                        {menuActive && <CloseMenu />}
+                        {!menuActive && <Menu />}
                     </button>
-                    <aside className={classesCollapse}>
-                        <header>
-                            <Link
-                                to={admin}
-                                className={`${baseClassCollapse}__brand`}
-                            >
-                                <Icon />
-                            </Link>
-                            <button
-                                type="button"
-                                className={`${baseClassCollapse}__mobile-menu-btn`}
-                                onClick={() => setMenuActive(!menuActive)}
-                            >
-                                {menuActive && <CloseMenu />}
-                                {!menuActive && <Menu />}
-                            </button>
-                        </header>
-                        <div
-                            className={`${baseClassCollapse}__scroll`}
-                            onClick={handleExpandNav}
-                        >
-                            <nav className={`${baseClass}__wrap`}>
-                                {Array.isArray(beforeNavLinks) &&
-                                    beforeNavLinks.map((Component, i) => (
-                                        <Component key={i} />
-                                    ))}
-                                {groups.map(({ label, entities }, key) => {
-                                    return (
-                                        <NavGroup {...{ key, label }}>
-                                            {entities.map(
-                                                ({ entity, type }, i) => {
-                                                    let entityLabel: string;
-                                                    let href: string;
-                                                    let id: string;
+                </header>
+                <div
+                    className={`${baseClass}__scroll`}
+                    onClick={
+                        navIsCollapsed === true && menuActive === false
+                            ? handleExpandNav
+                            : null
+                    }
+                >
+                    <nav className={`${baseClass}__wrap`}>
+                        {Array.isArray(beforeNavLinks) &&
+                            beforeNavLinks.map((Component, i) => (
+                                <Component key={i} />
+                            ))}
+                        {groups.map(({ label, entities }, key) => {
+                            return (
+                                <NavGroup {...{ key, label }}>
+                                    {entities.map(({ entity, type }, i) => {
+                                        let entityLabel: string;
+                                        let href: string;
+                                        let id: string;
 
-                                                    if (
-                                                        type ===
-                                                        EntityType.collection
-                                                    ) {
-                                                        href = `${admin}/collections/${entity.slug}`;
-                                                        entityLabel =
-                                                            getTranslation(
-                                                                entity.labels
-                                                                    .plural,
-                                                                i18n
-                                                            );
-                                                        id = `nav-${entity.slug}`;
-                                                    }
+                                        if (type === EntityType.collection) {
+                                            href = `${admin}/collections/${entity.slug}`;
+                                            entityLabel = getTranslation(
+                                                entity.labels.plural,
+                                                i18n
+                                            );
+                                            id = `nav-${entity.slug}`;
+                                        }
 
-                                                    if (
-                                                        type ===
-                                                        EntityType.global
-                                                    ) {
-                                                        href = `${admin}/globals/${entity.slug}`;
-                                                        entityLabel =
-                                                            getTranslation(
-                                                                entity.label,
-                                                                i18n
-                                                            );
-                                                        id = `nav-global-${entity.slug}`;
-                                                    }
+                                        if (type === EntityType.global) {
+                                            href = `${admin}/globals/${entity.slug}`;
+                                            entityLabel = getTranslation(
+                                                entity.label,
+                                                i18n
+                                            );
+                                            id = `nav-global-${entity.slug}`;
+                                        }
 
-                                                    return (
-                                                        <NavLink
-                                                            id={id}
-                                                            className={`${baseClass}__link`}
-                                                            activeClassName="active"
-                                                            key={i}
-                                                            to={href}
-                                                        >
-                                                            <Chevron />
-                                                            {entityLabel}
-                                                        </NavLink>
-                                                    );
-                                                }
-                                            )}
-                                        </NavGroup>
-                                    );
-                                })}
-                                {Array.isArray(afterNavLinks) &&
-                                    afterNavLinks.map((Component, i) => (
-                                        <Component key={i} />
-                                    ))}
-                            </nav>
-                        </div>
-                        <div className={`${baseClassCollapse}__controls`}>
-                            <div>
-                                <Localizer />
-                            </div>
-                            <Link
-                                to={`${admin}/account`}
-                                className={`${baseClassCollapse}__account`}
-                            >
-                                <Account />
-                            </Link>
-                            <Logout />
-                        </div>
-                    </aside>
-                </>
-            )}
+                                        return (
+                                            <NavLink
+                                                id={id}
+                                                className={`${baseClass}__link`}
+                                                activeClassName="active"
+                                                key={i}
+                                                to={href}
+                                            >
+                                                <Chevron />
+                                                {entityLabel}
+                                            </NavLink>
+                                        );
+                                    })}
+                                </NavGroup>
+                            );
+                        })}
+                        {Array.isArray(afterNavLinks) &&
+                            afterNavLinks.map((Component, i) => (
+                                <Component key={i} />
+                            ))}
+                    </nav>
+                </div>
+                <div className={`${baseClass}__controls`}>
+                    <div>
+                        <Localizer />
+                    </div>
+                    <Link
+                        to={`${admin}/account`}
+                        className={`${baseClass}__account`}
+                    >
+                        <Account />
+                    </Link>
+                    <Logout />
+                </div>
+            </aside>
         </>
     );
 };
