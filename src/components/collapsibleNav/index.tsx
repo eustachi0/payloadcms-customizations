@@ -92,22 +92,6 @@ const DefaultNav = () => {
         [history]
     );
 
-    useEffect(() => {
-        const handleGetWinWidth = () => {
-            if (window.innerWidth > 1024) {
-                if (menuActive === true) {
-                    setMenuActive(false);
-                }
-            }
-        };
-
-        window.addEventListener("resize", handleGetWinWidth);
-
-        return () => {
-            window.removeEventListener("resize", handleGetWinWidth);
-        };
-    });
-
     // collapsible Nav functionality
     const [navIsCollapsed, setNavIsCollapsed] = useState(false);
 
@@ -179,6 +163,12 @@ const DefaultNav = () => {
                 )}
             </button>
             <aside className={classes}>
+                {navIsCollapsed ? (
+                    <div
+                        className={`${baseClass}__collapsed-sidebar`}
+                        onClick={handleExpandNav}
+                    ></div>
+                ) : null}
                 <header>
                     <Link to={admin} className={`${baseClass}__brand`}>
                         <Icon />
@@ -194,11 +184,11 @@ const DefaultNav = () => {
                 </header>
                 <div
                     className={`${baseClass}__scroll`}
-                    onClick={
-                        navIsCollapsed === true && menuActive === false
-                            ? handleExpandNav
-                            : null
-                    }
+                    // onClick={
+                    //     navIsCollapsed === true && menuActive === false
+                    //         ? handleExpandNav
+                    //         : null
+                    // }
                 >
                     <nav className={`${baseClass}__wrap`}>
                         {Array.isArray(beforeNavLinks) &&

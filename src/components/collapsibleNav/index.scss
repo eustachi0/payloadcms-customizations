@@ -249,6 +249,18 @@
     overflow: hidden;
     border-right: 1px solid var(--theme-elevation-100);
 
+    &__collapsed-sidebar {
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 210px);
+        z-index: 20;
+        top: 75px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
     header {
         width: 100%;
         height: 100px;
@@ -398,6 +410,10 @@
         z-index: var(--z-modal);
         margin-left: 0px;
         border-right: none !important;
+
+        &__collapsed-sidebar {
+            display: none;
+        }
 
         &__brand {
             margin-top: 0 !important;
