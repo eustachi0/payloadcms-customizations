@@ -67,7 +67,7 @@
         &::-webkit-scrollbar-thumb {
             background-color: var(--theme-elevation-150);
             border-top: 118px solid var(--theme-elevation-0);
-            border-bottom: 130px solid var(--theme-elevation-0);
+            border-bottom: 160px solid var(--theme-elevation-0);
             border-right: 10px solid var(--theme-elevation-0);
             border-left: 8px solid var(--theme-elevation-0);
         }
@@ -79,7 +79,7 @@
         flex-direction: column;
         align-items: flex-start;
         flex-grow: 1;
-        margin-bottom: 18px;
+        margin-bottom: 49px;
     }
 
     &__label {
@@ -89,23 +89,25 @@
     &__controls {
         position: absolute !important;
         z-index: 15 !important;
-        margin-top: -130px !important;
+        margin-top: -160px !important;
         margin-bottom: 0;
         height: 180px;
         width: 100%;
+        padding-right: 130px;
         display: flex;
         flex-direction: column;
         flex-grow: 1;
         padding-left: base(1);
+        padding-top: 15px;
         backdrop-filter: blur(5px) !important;
 
         > * {
             margin-top: base(1.5) !important;
-            margin-bottom: -20px;
+            margin-bottom: -10px;
         }
         > :first-child {
             position: absolute;
-            margin-top: -3px !important;
+            margin-top: -10px !important;
             margin-left: -25px;
             padding-left: 30px;
             margin-bottom: 10px;
@@ -175,7 +177,7 @@
         }
 
         &__controls {
-            margin-top: -230px !important;
+            margin-top: -250px !important;
             padding-left: 5% !important;
         }
 
@@ -310,10 +312,6 @@
         overflow-x: hidden;
     }
 
-    &__scroll:hover {
-        cursor: pointer;
-    }
-
     &__wrap {
         width: 100%;
         display: flex;
@@ -330,23 +328,25 @@
     &__controls {
         position: absolute !important;
         z-index: 15;
-        margin-top: -130px !important;
+        margin-top: -160px !important;
         margin-bottom: 0;
         height: 180px;
         width: 100%;
+        padding-right: 10px;
         display: flex;
         flex-direction: column;
         flex-grow: 1;
         padding-left: base(0.5);
+        padding-top: 15px;
         backdrop-filter: blur(5px) !important;
 
         > * {
             margin-top: base(1.5) !important;
-            margin-bottom: -20px;
+            margin-bottom: -10px;
         }
         > :first-child {
             position: absolute;
-            margin-top: -3px !important;
+            margin-top: -10px !important;
             margin-left: -25px;
             padding-left: 30px;
             margin-bottom: 10px;
@@ -421,7 +421,7 @@
         }
 
         &__controls {
-            margin-top: -230px !important;
+            margin-top: -250px !important;
             padding-left: 5% !important;
         }
 
@@ -430,10 +430,6 @@
             overflow: hidden;
             width: 100%;
             display: block;
-        }
-
-        &__scroll:hover {
-            cursor: default;
         }
 
         header,

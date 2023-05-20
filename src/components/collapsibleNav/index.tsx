@@ -182,14 +182,7 @@ const DefaultNav = () => {
                         {!menuActive && <Menu />}
                     </button>
                 </header>
-                <div
-                    className={`${baseClass}__scroll`}
-                    // onClick={
-                    //     navIsCollapsed === true && menuActive === false
-                    //         ? handleExpandNav
-                    //         : null
-                    // }
-                >
+                <div className={`${baseClass}__scroll`}>
                     <nav className={`${baseClass}__wrap`}>
                         {Array.isArray(beforeNavLinks) &&
                             beforeNavLinks.map((Component, i) => (
