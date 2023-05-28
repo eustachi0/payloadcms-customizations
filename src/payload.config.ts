@@ -5,16 +5,19 @@ import Blogs from "./collections/Blogs";
 import Tags from "./collections/Tags";
 import Products from "./collections/Products";
 import Orders from "./collections/Orders";
-import CollapsibleNav from "./components/collapsibleNav";
-import AfterNavLinks from "./components/AfterNavLinks";
+import LeftSidebar from "./components/LeftSidebar/LeftSidebar";
+import RightSidebar from "./components/RightSidebar/RightSidebar";
+// import AfterNavLinks from "./components/RightSidebar/RightSidebar";
+// // import CollapsibleNav from "./components/CollapsibleNav";
+// import AfterLeftNav from "./components/LeftSidebar/LeftSidebar";
 
 export default buildConfig({
     serverURL: process.env.SERVER_URL,
     admin: {
         user: Users.slug,
         components: {
-            Nav: CollapsibleNav,
-            afterNavLinks: [AfterNavLinks],
+            // Nav: CollapsibleNav,
+            afterNavLinks: [LeftSidebar, RightSidebar],
         },
     },
     collections: [Users, Products, Blogs, Tags, Orders],

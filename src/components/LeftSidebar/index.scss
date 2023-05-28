@@ -1,0 +1,61 @@
+@import "~/node_modules/payload/dist/admin/scss/styles.scss";
+
+// @media only screen and (min-width: 1024px) {
+// }
+
+.nav {
+    background-color: yellowgreen;
+    position: fixed !important;
+
+    &__scroll {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow-y: hidden !important;
+    }
+
+    header {
+        // background-color: brown;
+        z-index: 10;
+        height: 102px;
+        margin-top: -40px;
+        align-items: center;
+        // backdrop-filter: blur(5px) !important;
+    }
+
+    &__wrap {
+        margin-top: -137px;
+        padding-top: 100px;
+        height: 100%;
+        overflow-y: scroll;
+        background-color: cornflowerblue;
+    }
+
+    &__controls {
+        background-color: burlywood;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        padding-bottom: 30px;
+        // padding-top: 0;
+
+        .localizer {
+            background-color: blueviolet;
+            // position: absolute;
+            margin-top: 0px;
+        }
+    }
+
+    &__account,
+    &__log-out {
+        background-color: red;
+        width: 25px;
+        // left: 0 !important;
+        // margin: 0 130px 0 0;
+    }
+
+    & + .template-default__wrap {
+        background-color: aquamarine;
+        margin-left: var(--nav-width);
+    }
+}
