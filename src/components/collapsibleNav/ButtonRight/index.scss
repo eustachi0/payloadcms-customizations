@@ -1,0 +1,72 @@
+@import "~/node_modules/payload/dist/admin/scss/styles.scss";
+
+// collapse/expand buttons
+.collapse-button-right {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    top: 100px; //115px; // 72px;
+    left: auto;
+    right: 362px !important;
+    // right: 100px !important;
+    // left: 10px !important;
+    // left: 200px; //calc(var(--nav-width) - 11px);
+    background-color: var(--theme-elevation-0);
+    border-radius: 3px;
+    border: 1px solid var(--theme-elevation-150);
+    z-index: 22;
+
+    svg {
+        width: 19px;
+        height: 19px;
+        color: var(--theme-elevation-250);
+        margin-left: -4px;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        svg {
+            color: var(--theme-elevation-800) !important;
+        }
+    }
+
+    @include mid-break {
+        display: none;
+    }
+}
+
+.expand-button-right {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    top: 100px; //115px; // 72px;
+    left: auto;
+    right: 31px !important;
+    // right: 100px !important;
+    // left: 10px !important;
+    // left: 200px; //calc(var(--nav-width) - 11px);
+    background-color: var(--theme-elevation-0);
+    border-radius: 3px;
+    border: 1px solid var(--theme-elevation-150);
+    z-index: 30;
+
+    svg {
+        width: 19px;
+        height: 19px;
+        color: #70d8a1; //var(--theme-elevation-250);
+        margin-left: -4px;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        svg {
+            color: var(--theme-elevation-800) !important;
+        }
+    }
+
+    @include mid-break {
+        display: none;
+    }
+}

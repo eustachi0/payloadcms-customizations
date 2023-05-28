@@ -1,0 +1,64 @@
+@import "~/node_modules/payload/dist/admin/scss/styles.scss";
+
+// collapse/expand buttons
+.collapse-button-left {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    top: 100px; //115px; //72px;
+    left: calc(var(--nav-width) - 11px);
+    background-color: var(--theme-elevation-0);
+    border-radius: 3px;
+    border: 1px solid var(--theme-elevation-150);
+    z-index: 30;
+
+    svg {
+        width: 19px;
+        height: 19px;
+        color: var(--theme-elevation-250);
+        margin-left: -4px;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        svg {
+            color: var(--theme-elevation-800) !important;
+        }
+    }
+
+    @include mid-break {
+        display: none;
+    }
+}
+
+.expand-button-left {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    top: 100px; //115px; //72px;
+    left: 37px;
+    background-color: var(--theme-elevation-0);
+    z-index: 30;
+    border-radius: 3px;
+    border: 1px solid var(--theme-elevation-150);
+
+    svg {
+        width: 19px;
+        height: 19px;
+        color: #70d8a1; //var(--theme-elevation-250);
+        margin-left: -4px;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        svg {
+            color: var(--theme-elevation-800) !important;
+        }
+    }
+
+    @include mid-break {
+        display: none;
+    }
+}

@@ -5,8 +5,8 @@ import Blogs from "./collections/Blogs";
 import Tags from "./collections/Tags";
 import Products from "./collections/Products";
 import Orders from "./collections/Orders";
-import CollapsibleNav from "./components/collapsibleNav";
-import AfterNavLinks from "./components/AfterNavLinks";
+import CollapsibleNav from "./components/CollapsibleNav";
+// import AfterNavLinks from "./components/CollapsibleNav";
 
 export default buildConfig({
     serverURL: process.env.SERVER_URL,
@@ -14,7 +14,7 @@ export default buildConfig({
         user: Users.slug,
         components: {
             Nav: CollapsibleNav,
-            afterNavLinks: [AfterNavLinks],
+            // afterNavLinks: [AfterNavLinks],
         },
     },
     collections: [Users, Products, Blogs, Tags, Orders],

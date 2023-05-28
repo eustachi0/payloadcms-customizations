@@ -1,17 +1,40 @@
 @import "~/node_modules/payload/dist/admin/scss/styles.scss";
 
+// .nav + .template-default__wrap {
+//     // background-color: grey;
+//     // left: var(--nav-width) !important;
+//     // margin-left: -25px;
+//     margin-left: var(--nav-width);
+// }
+
+// .collapse + .template-default__wrap-collapse {
+//     // background-color: grey;
+//     // left: var(--nav-width) !important;
+//     // margin-left: -25px;
+//     margin-left: 150px;
+// }
+
 .nav {
     flex-shrink: 0;
-    position: sticky;
+    position: sticky !important;
     top: 0;
     left: 0;
     margin-bottom: -16px;
-    margin-left: -25px;
+    // margin-left: -25px;
+    // margin-right: 200px !important;
     padding: 0 !important;
     height: 100vh;
     width: var(--nav-width);
     overflow: hidden;
     border-right: 1px solid var(--theme-elevation-100);
+    // background-color: brown;
+
+    // & + .template-default__wrap {
+    //     // background-color: yellow;
+    //     position: absolute;
+    //     left: var(--nav-width) !important;
+    //     width: calc(100% - var(--nav-width)) !important;
+    // }
 
     header {
         width: 100%;
@@ -240,10 +263,11 @@
 // Nav collapse
 .collapse {
     flex-shrink: 0;
-    position: sticky;
+    position: sticky !important;
     top: 0;
-    left: 0;
-    margin-left: -25px;
+    // right: 1px;
+    // left: 0;
+    // margin-left: -25px;
     margin-bottom: -16px;
     padding: 0 !important;
     height: 100vh;
@@ -251,12 +275,30 @@
     overflow: hidden;
     border-right: 1px solid var(--theme-elevation-100);
 
+    // & + .template-default__wrap {
+    //     // background-color: pink;
+    //     position: absolute !important;
+    //     left: 50px !important;
+    //     width: calc(100% - 50px) !important;
+    // }
+
+    // &::after {
+    //     content: "";
+    //     position: fixed;
+    //     top: 0;
+    //     left: 10px;
+    //     width: 100px;
+    //     height: 100%;
+    //     background-color: red;
+    // }
+
     &__collapsed-sidebar {
         position: absolute;
         width: 100%;
-        height: calc(100% - 210px);
+        height: calc(100% - 230px);
         z-index: 20;
         top: 75px;
+        // background-color: aqua;
 
         &:hover {
             cursor: pointer;
@@ -411,6 +453,11 @@
         margin-left: 0px;
         border-right: none !important;
 
+        & + .template-default__wrap {
+            // background-color: pink;
+            margin-left: var(--nav-width);
+        }
+
         &__collapsed-sidebar {
             display: none;
         }
@@ -481,65 +528,294 @@
     }
 }
 
+// button wrappers
+// .button-left-wrapper {
+//     position: absolute;
+//     background-color: red;
+// }
+// .button-right-wrapper {
+//     position: absolute;
+//     background-color: green;
+// }
+
+// .buttons-wrapper {
+//     background-color: cadetblue;
+//     position: sticky;
+//     width: 100%;
+//     height: 100px;
+// }
+
 // collapse/expand buttons
-.collapse-sidebar-button {
-    position: sticky;
-    width: 25px;
-    height: 25px;
-    top: 72px;
-    left: calc(var(--nav-width) - 11px);
-    background-color: var(--theme-elevation-0);
-    border-radius: 3px;
-    border: 1px solid var(--theme-elevation-150);
-    z-index: 30;
+// .collapse-sidebar-button {
+//     position: sticky;
+//     width: 25px;
+//     height: 25px;
+//     top: 72px;
+//     left: calc(var(--nav-width) - 11px);
+//     background-color: var(--theme-elevation-0);
+//     border-radius: 3px;
+//     border: 1px solid var(--theme-elevation-150);
+//     z-index: 30;
 
-    svg {
-        width: 19px;
-        height: 19px;
-        color: var(--theme-elevation-250);
-        margin-left: -4px;
+//     svg {
+//         width: 19px;
+//         height: 19px;
+//         color: var(--theme-elevation-250);
+//         margin-left: -4px;
+//     }
+
+//     &:hover {
+//         cursor: pointer;
+
+//         svg {
+//             color: var(--theme-elevation-800) !important;
+//         }
+//     }
+
+//     @include mid-break {
+//         display: none;
+//     }
+// }
+
+// .expand-sidebar-button {
+//     position: sticky;
+//     width: 25px;
+//     height: 25px;
+//     top: 72px;
+//     left: 37px;
+//     background-color: var(--theme-elevation-0);
+//     z-index: 30;
+//     border-radius: 3px;
+//     border: 1px solid var(--theme-elevation-150);
+
+//     svg {
+//         width: 19px;
+//         height: 19px;
+//         color: var(--theme-elevation-250);
+//         margin-left: -4px;
+//     }
+
+//     &:hover {
+//         cursor: pointer;
+
+//         svg {
+//             color: var(--theme-elevation-800) !important;
+//         }
+//     }
+
+//     @include mid-break {
+//         display: none;
+//     }
+// }
+
+// RIGHT SIDEBAR
+// .collection-edit__sidebar-wrap {
+//     // background-color: red;
+//     //top: 100px !important;
+//     // border-left: none !important;
+// }
+
+// .collection-edit__sidebar {
+//     padding-top: 100px !important;
+// }
+
+// .collection-edit__document-actions,
+// .collection-edit__document-actions--has-2 {
+//     // left: -50px !important;
+//     width: 100%;
+//     margin-left: 0px;
+//     position: absolute !important;
+//     top: 0px !important;
+//     // background-color: greenyellow !important;
+//     z-index: 100 !important;
+//     backdrop-filter: blur(5px) !important;
+//     // border-left: 1px solid var(--theme-elevation-0);
+// }
+
+// .collection-edit__collection-actions {
+//     // background-color: yellow;
+// }
+
+// collapsed
+// 01
+// .collection-edit__main {
+//     // position: absolute !important;
+//     // left: 0;
+//     // background-color: green;
+//     // margin-right: 100px !important;
+//     // width: calc(100% - var(--nav-width) - 370px) !important;
+//     // margin-right: 100px !important;
+//     // overflow-x: hidden;
+
+//     &-colapsed {
+//         background-color: red;
+//         width: calc(100% - 10px) !important;
+//     }
+// }
+
+// collapsed
+// .collection-edit__main {
+//     position: absolute !important;
+//     // left: 0;
+//     // background-color: green;
+//     // margin-right: 100px !important;
+//     width: calc(100% - 10px) !important;
+//     // margin-right: 100px !important;
+//     // overflow-x: hidden;
+// }
+
+// 02
+// .collection-edit__sidebar-wrap {
+//     // background-color: red;
+//     //top: 100px !important;
+//     // border-left: none !important;
+
+//     &-colapsed {
+//         right: -330px !important;
+//     }
+// }
+
+// .collection-edit__sidebar {
+// }
+
+// .collection-edit__document-actions,
+// .collection-edit__document-actions--has-2 {
+//     // left: -50px !important;
+
+//     // background-color: greenyellow !important;
+//     // z-index: 100 !important;
+
+//     // border-left: 1px solid var(--theme-elevation-0);
+// }
+
+// .collection-edit__collection-actions {
+//     // border-left: 1px solid red;
+//     // background-color: yellow;
+// }
+// .collection-edit__sidebar-fields {
+//     // border-left: 1px solid red;
+// }
+// .collection-edit__meta {
+//     // border-left: 1px solid red;
+// }
+
+.collection-edit {
+    &__main {
+        // background-color: yellow;
     }
 
-    &:hover {
-        cursor: pointer;
-
-        svg {
-            color: var(--theme-elevation-800) !important;
-        }
+    &__sidebar-wrap {
+        // background-color: blue;
+        // right: -330px !important;
+        z-index: var(--z-nav) !important;
+        padding-top: 75px !important;
     }
 
-    @include mid-break {
-        display: none;
+    &__sidebar {
+        // position: fixed !important;
+        // position: sticky;
+        // background-color: red;
+        // margin-left: 30px !important;
+    }
+
+    &__document-actions {
+        // background-color: greenyellow;
+        position: absolute !important;
+        width: 100%;
+        // margin-left: -375px !important;
+        // padding-left: 240px !important;
+        // margin-right: -100px !important;
+        top: 0px !important;
+        // backdrop-filter: blur(5px) !important;
+
+        // & .form-submit {
+        //     // background-color: azure;
+        //     text-align: right;
+        // }
+    }
+    &__document-actions--has-2 {
+        // background-color: brown;
+        position: absolute !important;
+        width: 100%;
+        // margin-left: -375px !important;
+        padding-left: 20px !important;
+        top: 0px !important;
+        // backdrop-filter: blur(5px) !important;
+    }
+
+    &__collection-actions {
+        // background-color: pink;
+    }
+
+    &__sidebar-fields {
+        // background-color: cyan;
+    }
+
+    &__meta {
+        // background-color: chocolate;
     }
 }
 
-.expand-sidebar-button {
-    position: sticky;
-    width: 25px;
-    height: 25px;
-    top: 72px;
-    left: 37px;
-    background-color: var(--theme-elevation-0);
-    z-index: 30;
-    border-radius: 3px;
-    border: 1px solid var(--theme-elevation-150);
-
-    svg {
-        width: 19px;
-        height: 19px;
-        color: var(--theme-elevation-250);
-        margin-left: -4px;
-    }
-
-    &:hover {
-        cursor: pointer;
-
-        svg {
-            color: var(--theme-elevation-800) !important;
+// collapse
+.collapse-test {
+    .collection-edit {
+        &__main {
+            // background-color: darkcyan !important;
+            width: calc(100% - 46px) !important;
         }
-    }
 
-    @include mid-break {
-        display: none;
+        &__sidebar-wrap {
+            position: fixed;
+            top: 0px;
+            right: -330px;
+            height: 100%;
+            // background-color: aquamarine;
+            z-index: var(--z-nav);
+            padding-top: 75px;
+            // background-color: green;
+        }
+
+        // &__sidebar {
+        //     // position: fixed !important;
+        //     // position: sticky;
+        //     // background-color: red;
+        //     // margin-left: 30px !important;
+        // }
+
+        &__document-actions {
+            // background-color: greenyellow;
+            position: absolute !important;
+            width: 100%;
+            margin-left: -375px !important;
+            // padding-left: 240px !important;
+            margin-right: -100px !important;
+            top: 0px !important;
+            // backdrop-filter: blur(5px) !important;
+
+            & .form-submit {
+                text-align: right;
+            }
+        }
+        &__document-actions--has-2 {
+            // background-color: brown;
+            position: absolute !important;
+            width: 100%;
+            margin-left: -375px !important; //-375px !important;
+            padding-left: 20px !important;
+            top: 0px !important;
+            // backdrop-filter: blur(5px) !important;
+        }
+
+        &__collection-actions {
+            display: none;
+        }
+
+        &__sidebar-fields {
+            display: none;
+        }
+
+        &__meta {
+            display: none;
+        }
     }
 }
