@@ -92,51 +92,68 @@
             }
         }
     }
-}
 
-// modal container
-.payload__modal-container {
-    width: calc(100% + 17px);
-
-    .collection-edit {
-        &__edit {
-            margin-right: -18px;
-            padding-top: 40px;
-        }
-        &__document-actions--has-2 {
-            right: 0px;
-            width: calc(100%);
-            backdrop-filter: none !important;
-
-            .form-submit {
-                width: 100%;
-            }
-        }
-
-        &__sidebar-fields {
-            margin-top: 25px;
-        }
-    }
-}
-
-.collapse-right {
+    // modal container
     .payload__modal-container {
         width: calc(100% + 17px);
 
         .collection-edit {
             &__edit {
                 margin-right: -18px;
-                padding-top: 40px;
+                padding-top: 45px;
             }
+
+            &__document-actions {
+                width: calc(100% - 17px);
+            }
+
             &__document-actions--has-2 {
-                position: fixed !important;
-                right: 46px !important;
-                width: calc(100% - 46px) !important;
-                backdrop-filter: blur(5px) !important;
-                justify-content: end !important;
+                right: 0px;
+                width: calc(100%);
+                backdrop-filter: none !important;
 
                 .form-submit {
-                    width: 130px !important;
+                    width: 100%;
+                }
+            }
+
+            &__sidebar-fields {
+                margin-top: 25px;
+            }
+        }
+    }
+
+    .collapse-right {
+        .payload__modal-container {
+            width: calc(100% + 17px);
+
+            .collection-edit {
+                &__edit {
+                    margin-right: -18px;
+                    padding-top: 45px;
+                }
+
+                &__document-actions {
+                    position: fixed !important;
+                    right: 46px;
+                    width: calc(100% - 46px);
+                    backdrop-filter: blur(5px) !important;
+
+                    .form-submit {
+                        text-align: right;
+                    }
+                }
+
+                &__document-actions--has-2 {
+                    position: fixed !important;
+                    right: 46px !important;
+                    width: calc(100% - 46px) !important;
+                    backdrop-filter: blur(5px) !important;
+                    justify-content: end !important;
+
+                    .form-submit {
+                        width: 130px !important;
+                    }
                 }
             }
         }
