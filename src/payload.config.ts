@@ -5,8 +5,9 @@ import Blogs from "./collections/Blogs";
 import Tags from "./collections/Tags";
 import Products from "./collections/Products";
 import Orders from "./collections/Orders";
-import LeftSidebar from "./components/LeftSidebar/LeftSidebar";
-import RightSidebar from "./components/RightSidebar/RightSidebar";
+import SidebarLeft from "./components/SidebarLeft/SidebarLeft";
+import SidebarRight from "./components/SidebarRight/SidebarRight";
+import Nav from "./globals/GlobalNav";
 // import AfterNavLinks from "./components/RightSidebar/RightSidebar";
 // // import CollapsibleNav from "./components/CollapsibleNav";
 // import AfterLeftNav from "./components/LeftSidebar/LeftSidebar";
@@ -17,10 +18,11 @@ export default buildConfig({
         user: Users.slug,
         components: {
             // Nav: CollapsibleNav,
-            afterNavLinks: [LeftSidebar, RightSidebar],
+            afterNavLinks: [SidebarLeft, SidebarRight],
         },
     },
     collections: [Users, Products, Blogs, Tags, Orders],
+    globals: [Nav],
     localization: {
         locales: ["en"],
         defaultLocale: "en",
