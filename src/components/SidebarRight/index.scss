@@ -2,6 +2,7 @@
 
 @media only screen and (min-width: 1024px) {
     .collection-edit,
+    .account,
     .global-edit {
         &__sidebar-wrap {
             z-index: var(--z-nav) !important;
@@ -41,9 +42,10 @@
     // collapse
     .collapse-right {
         .collection-edit,
+        .account,
         .global-edit {
             &__main {
-                width: calc(100% - 46px) !important;
+                width: calc(100% - 45px) !important;
             }
 
             &__edit {

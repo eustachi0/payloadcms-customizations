@@ -8,13 +8,18 @@ const SidebarRight: React.FC = () => {
         useState(false);
     const [sidebarRightIsVisible, setSidebarRightIsVisible] = useState("false");
 
-    // check when the form is visible as the payload right sidebar appears when the form is rendered (when editing or creating a doc). This will control the visibility of the right button
+    // check when the form is visible as the payload right sidebar appears when the form is rendered (when editing or creating a doc), same for the account html. This will control the visibility of the right button
     const getFormHtmlElement = useRef(null);
+    const getAccountHtmlElement = useRef(null);
 
     useEffect(() => {
         getFormHtmlElement.current = document.querySelector("form");
+        getAccountHtmlElement.current = document.querySelector(".account");
 
-        if (getFormHtmlElement.current !== null) {
+        if (
+            getFormHtmlElement.current !== null ||
+            getAccountHtmlElement.current
+        ) {
             setSidebarRightIsVisible(true);
         } else {
             setSidebarRightIsVisible(false);
