@@ -1,4 +1,4 @@
-This branch is only for testing
+This branch has two AfterNavLinks components, one for the left sidebar and the other for the right sidebar. You can use both components or only one of them separately.
 
 # payloadcms
 
