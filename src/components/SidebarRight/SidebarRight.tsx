@@ -8,14 +8,19 @@ const SidebarRight: React.FC = () => {
         useState(false);
     const [sidebarRightIsVisible, setSidebarRightIsVisible] = useState("false");
 
-    // check when the form is visible as the payload right sidebar appears when the form is rendered (when editing or creating a doc), same for the account html. This will control the visibility of the right button
+    // check when the form is visible as the payload right sidebar appears when the form is rendered (when editing or creating a doc), same for the account html and the form modal. This will control the visibility of the right button and the position of the colapsed right sidebar to be expanded on click
     const getFormHtmlElement = useRef(null);
     const getAccountHtmlElement = useRef(null);
+    const getPayloadModalHtmlElement = useRef(null);
 
     useEffect(() => {
         getFormHtmlElement.current = document.querySelector("form");
         getAccountHtmlElement.current = document.querySelector(".account");
+        getPayloadModalHtmlElement.current = document.querySelector(
+            ".payload__modal-container--enterDone"
+        );
 
+        // when the form or the account is rendered
         if (
             getFormHtmlElement.current !== null ||
             getAccountHtmlElement.current
@@ -23,6 +28,13 @@ const SidebarRight: React.FC = () => {
             setSidebarRightIsVisible(true);
         } else {
             setSidebarRightIsVisible(false);
+        }
+
+        // when payload modal is active
+        if (getPayloadModalHtmlElement.current !== null) {
+            document.body.classList.add("modal-is-active");
+        } else {
+            document.body.classList.remove("modal-is-active");
         }
     });
 

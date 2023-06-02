@@ -11,7 +11,7 @@
     background-color: var(--theme-elevation-0);
     border-radius: 3px;
     border: 1px solid var(--theme-elevation-150);
-    z-index: 30;
+    z-index: 1;
 
     svg {
         width: 19px;
@@ -43,12 +43,12 @@
     background-color: var(--theme-elevation-0);
     border-radius: 3px;
     border: 1px solid var(--theme-elevation-150);
-    z-index: 30;
+    z-index: 1;
 
     svg {
         width: 19px;
         height: 19px;
-        color: #70d8a1;
+        color: var(--theme-elevation-800);
         margin-left: -4px;
     }
 
@@ -56,7 +56,7 @@
         cursor: pointer;
 
         svg {
-            color: var(--theme-elevation-800) !important;
+            color: var(--theme-elevation-250) !important;
         }
     }
 
@@ -67,7 +67,7 @@
 
 .collapse-right-hover {
     position: fixed;
-    width: 43px;
+    width: 44px;
     height: 100%;
     top: 0;
     left: auto !important;
@@ -76,10 +76,31 @@
     &:hover {
         cursor: pointer;
         background-color: var(--theme-elevation-50);
-        opacity: 0.25;
+        opacity: 0.5;
     }
 
     @include mid-break {
         display: none;
+    }
+}
+
+.modal-is-active {
+    .collapse-right-hover {
+        position: fixed;
+        width: 28px;
+        height: 100%;
+        top: 0;
+        left: auto !important;
+        right: 15px !important;
+
+        &:hover {
+            cursor: pointer;
+            background-color: var(--theme-elevation-50);
+            opacity: 0.5;
+        }
+
+        @include mid-break {
+            display: none;
+        }
     }
 }

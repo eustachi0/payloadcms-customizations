@@ -10,7 +10,7 @@
     background-color: var(--theme-elevation-0);
     border-radius: 3px;
     border: 1px solid var(--theme-elevation-150);
-    z-index: 30;
+    z-index: 10;
 
     svg {
         width: 19px;
@@ -46,7 +46,7 @@
     svg {
         width: 19px;
         height: 19px;
-        color: #70d8a1;
+        color: var(--theme-elevation-800);
         margin-left: -4px;
     }
 
@@ -54,7 +54,7 @@
         cursor: pointer;
 
         svg {
-            color: var(--theme-elevation-800) !important;
+            color: var(--theme-elevation-250) !important;
         }
     }
 
@@ -74,7 +74,7 @@
     &:hover {
         cursor: pointer;
         background-color: var(--theme-elevation-50);
-        opacity: 0.25;
+        opacity: 0.5;
     }
 
     @include mid-break {

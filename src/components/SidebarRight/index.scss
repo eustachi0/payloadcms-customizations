@@ -27,7 +27,6 @@
             position: absolute !important;
             width: 100%;
             top: 0px !important;
-            backdrop-filter: blur(5px) !important;
         }
 
         &__document-actions--has-2 {
@@ -64,7 +63,13 @@
             &__document-actions {
                 width: fit-content;
                 margin-left: -143px !important;
-                backdrop-filter: none !important;
+
+                &:before {
+                    opacity: 0 !important;
+                }
+                &:after {
+                    opacity: 0 !important;
+                }
             }
 
             &__document-actions--has-2 {
@@ -127,11 +132,11 @@
 
     .collapse-right {
         .payload__modal-container {
-            width: calc(100% + 17px);
+            width: calc(100% + 16px);
 
             .collection-edit {
                 &__edit {
-                    margin-right: -18px;
+                    margin-right: -16px !important;
                     padding-top: 45px;
                 }
 
