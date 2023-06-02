@@ -16,9 +16,10 @@ const SidebarRight: React.FC = () => {
     useEffect(() => {
         getFormHtmlElement.current = document.querySelector("form");
         getAccountHtmlElement.current = document.querySelector(".account");
-        getPayloadModalHtmlElement.current = document.querySelector(
-            ".payload__modal-container--enterDone"
-        );
+        getPayloadModalHtmlElement.current =
+            document.querySelector(".drawer__content");
+
+        console.log(getPayloadModalHtmlElement.current);
 
         // when the form or the account is rendered
         if (
@@ -31,7 +32,10 @@ const SidebarRight: React.FC = () => {
         }
 
         // when payload modal is active
-        if (getPayloadModalHtmlElement.current !== null) {
+        if (
+            getPayloadModalHtmlElement.current !== null &&
+            sidebarRightIsCollapsed
+        ) {
             document.body.classList.add("modal-is-active");
         } else {
             document.body.classList.remove("modal-is-active");
