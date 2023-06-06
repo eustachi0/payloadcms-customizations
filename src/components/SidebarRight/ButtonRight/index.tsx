@@ -2,6 +2,12 @@ import React from "react";
 
 import "./index.scss";
 
+type ButtonProps = {
+    isCollapsed: boolean;
+    handleFunction1?: React.MouseEventHandler;
+    handleFunction2?: React.MouseEventHandler;
+};
+
 // collapsed button
 const CollapsedButton = () => {
     return (
@@ -46,7 +52,7 @@ const ExpandedButton = () => {
     );
 };
 
-const ButtonRight: React.FC = ({
+const ButtonRight: React.FC<ButtonProps> = ({
     isCollapsed,
     handleFunction1,
     handleFunction2,

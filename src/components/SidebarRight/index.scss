@@ -102,7 +102,7 @@
 
     // modal container
     .payload__modal-container {
-        width: calc(100% + 17px);
+        // width: 100%; //calc(100% + 17px);
 
         .collection-edit {
             &__edit {
@@ -132,7 +132,7 @@
 
     .collapse-right {
         .payload__modal-container {
-            width: calc(100% + 16px);
+            // width: 100%; //calc(100% + 16px);
 
             .collection-edit {
                 &__edit {

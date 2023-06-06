@@ -6,7 +6,7 @@ import ButtonRight from "./ButtonRight";
 const SidebarRight: React.FC = () => {
     const [sidebarRightIsCollapsed, setSidebarRightIsCollapsed] =
         useState(false);
-    const [sidebarRightIsVisible, setSidebarRightIsVisible] = useState("false");
+    const [sidebarRightIsVisible, setSidebarRightIsVisible] = useState(false);
 
     // check when the form is visible as the payload right sidebar appears when the form is rendered (when editing or creating a doc), same for the account html and the form modal. This will control the visibility of the right button and the position of the colapsed right sidebar to be expanded on click
     const getFormHtmlElement = useRef(null);
