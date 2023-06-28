@@ -1,6 +1,9 @@
 @import "~/node_modules/payload/dist/admin/scss/styles.scss";
 
 @media only screen and (min-width: 1024px) {
+    .leave-without-saving {
+        z-index: 101 !important;
+    }
     .nav {
         position: fixed !important;
         z-index: 100 !important;
