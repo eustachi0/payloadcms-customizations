@@ -36,6 +36,10 @@
             top: 0px !important;
             backdrop-filter: blur(5px) !important;
         }
+
+        .leave-without-saving {
+            z-index: 101 !important;
+        }
     }
 
     // collapse
