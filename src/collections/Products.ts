@@ -1,5 +1,6 @@
 import { CollectionConfig } from 'payload/types';
 import { text } from 'payload/dist/fields/validations';
+import { CustomSaveDraftButton } from '../components/CustomSaveDraft/CustomSaveDraft';
 
 const Products: CollectionConfig = {
   slug: 'products',
@@ -24,7 +25,12 @@ const Products: CollectionConfig = {
     drafts: true,
   },
   admin: {
-    useAsTitle: 'productName'
+    useAsTitle: 'productName',
+    components: { 
+      edit: {
+        SaveDraftButton: CustomSaveDraftButton
+      }
+    }
   },
   fields: [
     // general information
