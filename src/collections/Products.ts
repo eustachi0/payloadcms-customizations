@@ -1,5 +1,4 @@
 import { CollectionConfig } from 'payload/types';
-import { text } from 'payload/dist/fields/validations';
 import { CustomSaveDraftButton } from '../components/CustomSaveDraft/CustomSaveDraft';
 
 const Products: CollectionConfig = {

@@ -1,4 +1,5 @@
 import { CollectionConfig } from 'payload/types';
+import { CustomSaveDraftButton } from '../components/CustomSaveDraft/CustomSaveDraft';
 
 const Blogs: CollectionConfig = {
   slug: 'blogs',
@@ -24,6 +25,11 @@ const Blogs: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
+    components: {
+      edit: {
+        SaveDraftButton: CustomSaveDraftButton
+      }
+    }
   },
   fields: [
     {

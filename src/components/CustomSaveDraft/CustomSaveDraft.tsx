@@ -17,28 +17,25 @@ export const CustomSaveDraftButton: CustomSaveDraftButtonProps = ({ DefaultButto
     const [fieldName, setFieldName] = useState<string>(null)
     const fieldsHaveChanged = useRef<any>('')
 
-    // MY ORIGINAL SOLUTION
+    // get field name from event
     const getFieldName = (event) => {
         let eventTarget: any = event.target
         let fieldElement: any = null
 
+        const renderFields = eventTarget.closest('.render-fields');
 
-        while (eventTarget) {
-            if (eventTarget.closest('.render-fields')) {
-                if (eventTarget.parentNode.outerHTML.includes('id="field-')) {
-                    fieldElement = (eventTarget.parentNode.outerHTML)
-                        .split(' ')
-                        .filter(x => x.startsWith('id="field-'))[0]
-                        .slice(10, -1)
-                        .replaceAll('__', ".")
-                    setFieldName(fieldElement)
-                    break
-                } else {
-                    eventTarget = eventTarget.parentNode
-                }
-            } else {
+
+        while (eventTarget && renderFields) {
+            if (eventTarget.parentNode.outerHTML.includes('id="field-')) {
+                const match = eventTarget.parentNode.outerHTML.match(/id="field-(.*?)"/);
+                fieldElement = match[1].replaceAll('__', '.');
+
+                setFieldName(fieldElement)
                 break
+            } else {
+                eventTarget = eventTarget.parentNode
             }
+            renderFields
         }
     };
 
@@ -104,8 +101,8 @@ export const CustomSaveDraftButton: CustomSaveDraftButtonProps = ({ DefaultButto
                     ]
                 }
 
-                // see fiedls that have changed - for testing purposes
-                console.log('fieldsCurrentState.current: ', fieldsHaveChanged.current)
+                // see fields that have changed - for testing purposes
+                // console.log('fieldsCurrentState.current: ', fieldsHaveChanged.current)
             }
 
             if (fieldsHaveChanged.current.length === 0) {
